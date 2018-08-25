@@ -15,17 +15,24 @@ export default ({history}) => (
         <View style={styles.boxTwo}>
             <TextInput
                 placeholder="username"
-                placeholderTextColor="red"
+                placeholderTextColor="#5C7A7E80"
+                underlineColorAndroid="transparent"
+                returnKeyType="next"
                 style={styles.input}>
             </TextInput>
             <TextInput
                 placeholder="password"
-                placeholderTextColor="red"
+                placeholderTextColor="#5C7A7E80"
+                underlineColorAndroid="transparent"
+                secureTextEntry={true}
+                returnKeyType="next"
                 style={styles.input}>
             </TextInput>
             <TextInput
                 placeholder="email or telephone"
-                placeholderTextColor="red"
+                placeholderTextColor="#5C7A7E80"
+                underlineColorAndroid="transparent"
+                returnKeyType="done"
                 style={styles.input}>
             </TextInput>
             <TouchableOpacity style={styles.proceedButton}>
@@ -54,22 +61,27 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 40,
-        backgroundColor: "white",
+        backgroundColor: 'white',
         marginBottom: 20,
-        color: "skyblue",
+        color: '#2B4E53',
         paddingHorizontal: 10
     },
     proceedButton: {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#ffffff10',
         padding: 20,
         height: 50,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderColor: '#ffffff',
+        borderWidth: 1.5,
+        borderRadius: 1.5
         
     },
     paragraph: {
         fontSize: 24,
-        fontWeight: 'bold',        
+        fontWeight: 'bold', 
+        color: 'white'  
+      
     },
 
     alternativeProcedure: {
@@ -79,5 +91,6 @@ const styles = StyleSheet.create({
 
     alternativeProcedureText: {
       fontWeight: 'bold',
+      color: '#884A45'
     }
 });

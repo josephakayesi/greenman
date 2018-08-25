@@ -15,12 +15,14 @@ export default ({history}) => (
         <View style={styles.boxTwo}>
             <TextInput
                 placeholder="username, email or phone "
-                placeholderTextColor="red"
+                placeholderTextColor="#5C7A7E80"
+                underlineColorAndroid="transparent"
                 style={styles.input}>
             </TextInput>
             <TextInput
                 placeholder="password"
-                placeholderTextColor="red"
+                placeholderTextColor="#5C7A7E80"
+                underlineColorAndroid="transparent"
                 style={styles.input}>
             </TextInput>
 
@@ -52,20 +54,24 @@ const styles = StyleSheet.create({
         height: 40,
         backgroundColor: "white",
         marginBottom: 20,
-        color: "skyblue",
+        color: "#2B4E53",
         paddingHorizontal: 10
     },
     proceedButton: {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#ffffff10',
         padding: 20,
         height: 50,
         justifyContent: 'center',
-        alignItems: 'center'
-        
+        alignItems: 'center',
+        borderColor: '#ffffff',
+        borderWidth: 1.5,
+        borderRadius: 1.5      
     },
+    
     paragraph: {
         fontSize: 24,
-        fontWeight: 'bold',        
+        fontWeight: 'bold', 
+        color: 'white'       
     },
 
     alternativeProcedure: {
@@ -75,5 +81,6 @@ const styles = StyleSheet.create({
 
     alternativeProcedureText: {
         fontWeight: 'bold',
+        color: '#884A45'
     }
 });
