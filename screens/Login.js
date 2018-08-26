@@ -1,41 +1,58 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity,Text, TouchableHighlight, ImageBackground } from 'react-native';
 
 
-export default ({history}) => (
-    <View style={styles.container}>
-      <ImageBackground 
-        source={require('./images/backdrop.png')}
-        style={styles.container}
-        imageStyle={{ resizeMode: 'cover' }}>
+class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {username: '', password: ''};
+     
+      }  
+      
+      authenticateUser(user){
+        alert(`Username: ${user.username}, Password: ${user.password}`)
 
-        <View style={styles.boxOne}>
-  
-        </View>
-        <View style={styles.boxTwo}>
-            <TextInput
-                placeholder="username, email or phone "
-                placeholderTextColor="#5C7A7E80"
-                underlineColorAndroid="transparent"
-                style={styles.input}>
-            </TextInput>
-            <TextInput
-                placeholder="password"
-                placeholderTextColor="#5C7A7E80"
-                underlineColorAndroid="transparent"
-                style={styles.input}>
-            </TextInput>
+      }
+          
+    render(){
+        return(
+        <View style={styles.container}>
+            <ImageBackground 
+              source={require('./images/backdrop.png')}
+              style={styles.container}
+              imageStyle={{ resizeMode: 'cover' }}>
+      
+              <View style={styles.boxOne}>
 
-            <TouchableOpacity style={styles.proceedButton}>
-                <Text style={styles.paragraph}>LOGIN</Text>
-            </TouchableOpacity>
-            <TouchableHighlight style={styles.alternativeProcedure} onPress={() => history.push("./SignUp")}>
-                <Text style={styles.alternativeProcedureText}>Sign Up Instead ?</Text>
-            </TouchableHighlight>
-        </View>
-      </ImageBackground>
-    </View>
-);
+              </View>
+              <View style={styles.boxTwo}>
+                  <TextInput
+                      placeholder="username, email or phone "
+                      placeholderTextColor="#5C7A7E80"
+                      underlineColorAndroid="transparent"
+                      style={styles.input}
+                      onChangeText={(username) => this.setState({username})}>
+                  </TextInput>
+                  <TextInput
+                      placeholder="password"
+                      placeholderTextColor="#5C7A7E80"
+                      underlineColorAndroid="transparent"
+                      style={styles.input}
+                      onChangeText={(password) => this.setState({password})}>
+                  </TextInput>
+      
+                  <TouchableOpacity style={styles.proceedButton} onPress={() => this.authenticateUser(this.state)}>
+                      <Text style={styles.paragraph}>LOGIN</Text>
+                  </TouchableOpacity>
+                  <TouchableHighlight style={styles.alternativeProcedure} onPress={() => this.props.history.push("./SignUp")}>
+                      <Text style={styles.alternativeProcedureText}>Sign Up Instead ?</Text>
+                  </TouchableHighlight>
+              </View>
+            </ImageBackground>
+          </View>      
+      );
+    }
+}     
 
 const styles = StyleSheet.create({
     container: {
@@ -84,3 +101,5 @@ const styles = StyleSheet.create({
         color: '#884A45'
     }
 });
+
+export default Login;

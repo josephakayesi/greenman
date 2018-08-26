@@ -13,7 +13,7 @@ export default ({ history }) => (
   
         </View>
         <View style={styles.boxTwo}>
-          <TouchableOpacity style={styles.loginButton} onPress={() => history.push("./Login")}>
+          <TouchableOpacity style={styles.loginButton} onPress={() => history.push("./Login", {username: '', password: ''})}>
             <Text style={[styles.paragraph, styles.loginText]}>Login</Text>
           </TouchableOpacity>
          

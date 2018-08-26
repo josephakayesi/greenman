@@ -1,50 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity,Text, TouchableHighlight, ImageBackground } from 'react-native';
 
 
-export default ({history}) => (
-    <View style={styles.container}>
-      <ImageBackground 
-        source={require('./images/backdrop.png')}
-        style={styles.container}
-        imageStyle={{ resizeMode: 'cover' }}>
+class SignUp extends Component {
+    render(){
+        return( 
+            <View style={styles.container}>
+                <ImageBackground
+                    source={require('./images/backdrop.png')}
+                    style={styles.container}
+                    imageStyle={{ resizeMode: 'cover' }}>
 
-        <View style={styles.boxOne}>
-  
-        </View>
-        <View style={styles.boxTwo}>
-            <TextInput
-                placeholder="username"
-                placeholderTextColor="#5C7A7E80"
-                underlineColorAndroid="transparent"
-                returnKeyType="next"
-                style={styles.input}>
-            </TextInput>
-            <TextInput
-                placeholder="password"
-                placeholderTextColor="#5C7A7E80"
-                underlineColorAndroid="transparent"
-                secureTextEntry={true}
-                returnKeyType="next"
-                style={styles.input}>
-            </TextInput>
-            <TextInput
-                placeholder="email or telephone"
-                placeholderTextColor="#5C7A7E80"
-                underlineColorAndroid="transparent"
-                returnKeyType="done"
-                style={styles.input}>
-            </TextInput>
-            <TouchableOpacity style={styles.proceedButton}>
-                <Text style={styles.paragraph}>PROCEED</Text>
-            </TouchableOpacity>
-            <TouchableHighlight style={styles.alternativeProcedure} onPress={() => history.push("./Login")}>
-                <Text style={styles.alternativeProcedureText}>Login Instead ?</Text>
-            </TouchableHighlight>
-        </View>
-      </ImageBackground>
-    </View>
-);
+                    <View style={styles.boxOne}>
+
+                    </View>
+                    <View style={styles.boxTwo}>
+                        <TextInput
+                            placeholder="username"
+                            placeholderTextColor="#5C7A7E80"
+                            underlineColorAndroid="transparent"
+                            returnKeyType="next"
+                            style={styles.input}>
+                        </TextInput>
+                        <TextInput
+                            placeholder="password"
+                            placeholderTextColor="#5C7A7E80"
+                            underlineColorAndroid="transparent"
+                            secureTextEntry={true}
+                            returnKeyType="next"
+                            style={styles.input}>
+                        </TextInput>
+                        <TextInput
+                            placeholder="email or telephone"
+                            placeholderTextColor="#5C7A7E80"
+                            underlineColorAndroid="transparent"
+                            returnKeyType="done"
+                            style={styles.input}>
+                        </TextInput>
+                        <TouchableOpacity style={styles.proceedButton}>
+                            <Text style={styles.paragraph}>PROCEED</Text>
+                        </TouchableOpacity>
+                        <TouchableHighlight style={styles.alternativeProcedure} onPress={() => this.props.history.push("./Login")}>
+                            <Text style={styles.alternativeProcedureText}>Login Instead ?</Text>
+                        </TouchableHighlight>
+                    </View>
+                </ImageBackground>
+            </View>)
+    }
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -94,3 +97,5 @@ const styles = StyleSheet.create({
       color: '#884A45'
     }
 });
+
+export default SignUp;

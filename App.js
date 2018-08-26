@@ -13,7 +13,7 @@ export default class App extends Component {
       <NativeRouter>
         <Switch>
           <Route exact path = "/" component = {LandingPage}/>
-          <Route exact path = "/login" component = {Login}/>   
+          <Route exact path = "/login" component={Login}/>   
           <Route exact path = "/signup" component = {SignUp}/>         
         </Switch>
       </NativeRouter>
