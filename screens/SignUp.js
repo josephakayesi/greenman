@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
 
     alternativeProcedureText: {
       fontWeight: 'bold',
-      color: '#884A45'
+      color: 'white'
     }
 });
 

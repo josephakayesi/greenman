@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity,Text, TouchableHighlight, ImageBackground } from 'react-native';
+import { StyleSheet, View, TouchableOpacity,Text, ImageBackground } from 'react-native';
 
 
 export default ({ history }) => (
