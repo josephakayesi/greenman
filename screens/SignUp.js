@@ -3,6 +3,17 @@ import { StyleSheet, View, TextInput, TouchableOpacity,Text, TouchableHighlight,
 
 
 class SignUp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {username: '', password: '', email: ''};
+     
+      }  
+      
+      registerUser(user){
+        alert(`Username: ${user.username}, Password: ${user.password} Email: ${user.email}`)
+
+      }
+
     render(){
         return( 
             <View style={styles.container}>
@@ -20,7 +31,8 @@ class SignUp extends Component {
                             placeholderTextColor="#5C7A7E80"
                             underlineColorAndroid="transparent"
                             returnKeyType="next"
-                            style={styles.input}>
+                            style={styles.input}
+                            onChangeText={(username) => this.setState({username})}>
                         </TextInput>
                         <TextInput
                             placeholder="password"
@@ -28,16 +40,18 @@ class SignUp extends Component {
                             underlineColorAndroid="transparent"
                             secureTextEntry={true}
                             returnKeyType="next"
-                            style={styles.input}>
+                            style={styles.input}
+                            onChangeText={(password) => this.setState({password})}>
                         </TextInput>
                         <TextInput
                             placeholder="email or telephone"
                             placeholderTextColor="#5C7A7E80"
                             underlineColorAndroid="transparent"
                             returnKeyType="done"
-                            style={styles.input}>
+                            style={styles.input}
+                            onChangeText={(email) => this.setState({email})}>
                         </TextInput>
-                        <TouchableOpacity style={styles.proceedButton}>
+                        <TouchableOpacity style={styles.proceedButton} onPress={() => this.registerUser(this.state)}>
                             <Text style={styles.paragraph}>PROCEED</Text>
                         </TouchableOpacity>
                         <TouchableHighlight style={styles.alternativeProcedure} onPress={() => this.props.history.push("./Login")}>
