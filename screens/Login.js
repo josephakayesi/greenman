@@ -1,18 +1,40 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity,Text, TouchableHighlight, ImageBackground } from 'react-native';
-
+import firebase from 'firebase';
 
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {username: '', password: ''};
-     
-      }  
+        this.state = {
+            username: '', 
+            password: '', 
+            isAuthenticating: false
+        };     
+    }  
       
-      authenticateUser(user){
-        alert(`Username: ${user.username}, Password: ${user.password}`)
+    componentWillMount() {
+        const firebaseConfiguration = {
+            apiKey: 'AIzaSyCjdlnYUHicei7XbIyjEA2iGc7HiOoIhJE',
+            authorizedDomain: 'greenman-69d00.firebaseapp.com'
+        }
+        firebase.initializeApp(firebaseConfiguration);
+    }
 
-      }
+    authenticateUser(user) {
+        this.setState({isAuthenticating: true});
+
+        const { username, password } = user;
+
+        firebase.auth().signInWithEmailAndPassword(username, password)
+            .then(() => {
+                this.setState({isAuthenticating: false});
+                this.props.history.push("./Index")     
+            })
+            .catch(() => {
+                this.setState({isAuthenticating: false});
+                alert('Wrong username and password');
+            })       
+    }
           
     render(){
         return(
@@ -84,19 +106,16 @@ const styles = StyleSheet.create({
         borderColor: '#ffffff',
         borderWidth: 1.5,
         borderRadius: 1.5      
-    },
-    
+    },    
     paragraph: {
         fontSize: 24,
         fontWeight: 'bold', 
         color: 'white'       
     },
-
     alternativeProcedure: {
         alignItems: 'center',
         bottom: -5,      
     },
-
     alternativeProcedureText: {
         fontWeight: 'bold',
         color: 'white'

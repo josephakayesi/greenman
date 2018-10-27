@@ -5,8 +5,11 @@ import { StyleSheet, View, TextInput, TouchableOpacity,Text, TouchableHighlight,
 class SignUp extends Component {
     constructor(props) {
         super(props);
-        this.state = {username: '', password: '', email: ''};
-     
+        this.state = {
+            username: '', 
+            password: '', 
+            email: ''
+        };     
       }  
       
       registerUser(user){
@@ -91,21 +94,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: '#ffffff',
         borderWidth: 1.5,
-        borderRadius: 1.5
-        
+        borderRadius: 1.5        
     },
     paragraph: {
         fontSize: 24,
         fontWeight: 'bold', 
-        color: 'white'  
-      
+        color: 'white'        
     },
-
     alternativeProcedure: {
         alignItems: 'center',
         bottom: -5,       
     },
-
     alternativeProcedureText: {
       fontWeight: 'bold',
       color: 'white'
